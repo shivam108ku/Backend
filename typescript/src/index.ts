@@ -40,3 +40,14 @@ let p1 : Product = {
 console.log(p1);
 
 
+// Types for functions
+
+
+function sum( a : number , b :  number ) : number{
+    return a + b;
+}
+
+// b?--> optional so it will be an undefined
+
+// Dat obj in TS
+const ob = new Date();
