@@ -44,4 +44,3 @@ function sum( a : number , b :  number ) : number{
 }
 // b?--> optional so it will be an undefined
 // Dat obj in TS
-const ob = new Date();
