@@ -188,3 +188,15 @@ const loginForm: AuthForm = {
 }
 
 console.log(loginForm);
+
+// type an interface represent the funuction
+
+type logger = (msg: string, errorCode: number)=> void;
+
+interface loggerInterface {
+    (msg: string, errorCode: number): void;
+}
+
+// Defining Uinon is possible with type but not interfaces
+
+type unionOfString = number | string;
