@@ -1,46 +1,62 @@
-let id : number = 5;
-console.log(id);
+// let id : number = 5;
+// console.log(id);
 
-let firstName = "Shivam";
-var lastName = "Kumar";
+// let firstName = "Shivam";
+// var lastName = "Kumar";
 
-// Union 
-let userid : number | string = "26";
+// // Union
+// let userid : number | string = "26";
 
-//  array 
+//  array
 
-let array : number[] = [1 ,2 ,3 ];
+// let array : number[] = [1 ,2 ,3 ];
 
-// hetrogenous array 
-let array2 : any[] = [1,2,3,4, "false"];
+// // hetrogenous array
+// let array2 : any[] = [1,2,3,4, "false"];
 
-let data : (number | string)[] =[1 , 3 , 4 , 67, "dfgdf"]; 
-// tuple
- let data3 : [number , string , boolean]  = [1 ,"rtrt" ,false ]; 
-console.log(array2);
+// let data : (number | string)[] =[1 , 3 , 4 , 67, "dfgdf"];
+// // tuple
+//  let data3 : [number , string , boolean]  = [1 ,"rtrt" ,false ];
+// console.log(array2);
 
-// Types for object 
+// Types for object
 // clases
 // interface
 
-interface Product {
-    name :string;
-    price :number;
-    display() :void;
-}
+// interface Product {
+//     name :string;
+//     price :number;
+//     display() :void;
+// }
 
-let p1 : Product = {
-    name : "Shivam",
-    price : 100000000,
-    display: ()=>{
-        console.log("first")
-    }
-}
+// let p1 : Product = {
+//     name : "Shivam",
+//     price : 100000000,
+//     display: ()=>{
+//         console.log("first")
+//     }
+// }
 
 // Types for functions
 
-function sum( a : number , b :  number ) : number{
-    return a + b;
-}
+// function sum( a : number , b :  number ) : number{
+//     return a + b;
+// }
 // b?--> optional so it will be an undefined
 // Dat obj in TS
+
+let subs: number | string = "1M";
+
+let apirequestsStatus: "pending" | "sucess" | "error" = "pending";
+let airlineSeat: "aisle" | "window" | "middle";
+
+const orders = ["12", "34", "56", "27"];
+let cu: string | undefined;
+
+for (let order of orders) {
+  if (order === "34") {
+    cu = order;
+    break;
+  }
+}
+console.log(cu);
