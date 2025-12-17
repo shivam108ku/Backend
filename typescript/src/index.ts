@@ -128,3 +128,15 @@ function serveOrder(item:Chaiorder | string){
     }
     return `Number ${item}`
 }
+
+
+// More Type
+
+let response: any = '42';
+let numberLength:number = (response as string).length
+type Book = {
+    name : string
+}
+
+let bookString = '{"name":"One thing"}'
+
