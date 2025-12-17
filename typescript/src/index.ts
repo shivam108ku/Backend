@@ -167,3 +167,24 @@ const result : Details = {
     marks : 100,
     address: "Vaera"
 } 
+
+
+interface AuthForm {
+    name : string,
+    submitButtonText: string,
+    onReset: (e:any)=>void,
+    onSubmit: (e:any)=>void
+}
+
+const loginForm: AuthForm = {
+    name: "Login Form",
+    submitButtonText: "Login",
+    onReset: (e)=>{
+        console.log("Reset");
+    },
+    onSubmit: (e)=>{
+        console.log("Submit")
+    }
+}
+
+console.log(loginForm);
