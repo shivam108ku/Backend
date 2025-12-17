@@ -90,3 +90,41 @@ function orderChai(size: 'small' | 'medium' | 'large' | number){
     }
     return `chai order ${size}`
 }
+
+class kulhadChai{
+    serve(){
+        console.log("first")
+    }
+}
+
+class cutting{
+    serve(){
+        console.log("second")
+    }
+}
+
+function serve(chai: kulhadChai | cutting){
+    if( chai instanceof kulhadChai){
+        return chai.serve();
+    }
+}
+
+type Chaiorder = {
+    type: string
+    sugar: number 
+}
+
+function isChaiorder(obj:any):obj is Chaiorder{
+    return 
+    typeof obj === 'object' &&
+    obj !== null &&
+    typeof obj.type === 'string' &&
+    typeof obj.type === 'number'
+}
+
+function serveOrder(item:Chaiorder | string){
+    if(isChaiorder(item)){
+        return `Serving ${item.type} chai ${item.sugar} sugar`
+    }
+    return `Number ${item}`
+}
