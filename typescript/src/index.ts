@@ -140,3 +140,26 @@ type Book = {
 
 let bookString = '{"name":"One thing"}'
 
+// Enum in typescrit
+
+enum StatusCode {
+    NotFound = 404,
+    Success = 200,
+    Accepted = 202,
+    Created = 201,
+    BadRequest = 400
+}
+
+const responses = {
+    url: "www.getsmartcode.site",
+    type: "GET",
+    data: "some string",
+    status: StatusCode.Success
+}
+responses.url = "www.meraman.com" // tyupescript allow this 
+console.log(responses); 
+
+const result = {
+    name : "Shivam",
+    marks : "100",
+}
