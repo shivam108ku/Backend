@@ -60,3 +60,33 @@ for (let order of orders) {
   }
 }
 console.log(cu);
+
+
+// Type Narrowing And Type Gaurds
+
+function getChai(kind: string | number){
+    if( typeof kind === 'string'){
+        return `Making ${kind} chai ...`
+    }
+    return `Chai order: ${kind}`
+}
+
+function serverChai(msg?: string){
+    if(msg){
+        return `Serving ${msg}`;
+    }
+    return `Serving default masala chai`;
+}
+
+function orderChai(size: 'small' | 'medium' | 'large' | number){
+    if(size === 'small'){
+        return `Serving small chai...`;
+    }
+    if(size === 'medium'){
+        return 'Medium';
+    }
+    if(size === 'large'){
+        return 'large';
+    }
+    return `chai order ${size}`
+}
