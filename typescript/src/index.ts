@@ -156,10 +156,14 @@ const responses = {
     data: "some string",
     status: StatusCode.Success
 }
-responses.url = "www.meraman.com" // tyupescript allow this 
+responses.url = "www.meraman.com" // tyupescript allow this iss liye obj me type dena jaroori h 
 console.log(responses); 
 
-const result = {
+
+type Details = {name: string , marks: number, address?: string};
+
+const result : Details = {
     name : "Shivam",
-    marks : "100",
-}
+    marks : 100,
+    address: "Vaera"
+} 
