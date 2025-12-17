@@ -61,142 +61,170 @@ for (let order of orders) {
 }
 console.log(cu);
 
-
 // Type Narrowing And Type Gaurds
 
-function getChai(kind: string | number){
-    if( typeof kind === 'string'){
-        return `Making ${kind} chai ...`
-    }
-    return `Chai order: ${kind}`
+function getChai(kind: string | number) {
+  if (typeof kind === "string") {
+    return `Making ${kind} chai ...`;
+  }
+  return `Chai order: ${kind}`;
 }
 
-function serverChai(msg?: string){
-    if(msg){
-        return `Serving ${msg}`;
-    }
-    return `Serving default masala chai`;
+function serverChai(msg?: string) {
+  if (msg) {
+    return `Serving ${msg}`;
+  }
+  return `Serving default masala chai`;
 }
 
-function orderChai(size: 'small' | 'medium' | 'large' | number){
-    if(size === 'small'){
-        return `Serving small chai...`;
-    }
-    if(size === 'medium'){
-        return 'Medium';
-    }
-    if(size === 'large'){
-        return 'large';
-    }
-    return `chai order ${size}`
+function orderChai(size: "small" | "medium" | "large" | number) {
+  if (size === "small") {
+    return `Serving small chai...`;
+  }
+  if (size === "medium") {
+    return "Medium";
+  }
+  if (size === "large") {
+    return "large";
+  }
+  return `chai order ${size}`;
 }
 
-class kulhadChai{
-    serve(){
-        console.log("first")
-    }
+class kulhadChai {
+  serve() {
+    console.log("first");
+  }
 }
 
-class cutting{
-    serve(){
-        console.log("second")
-    }
+class cutting {
+  serve() {
+    console.log("second");
+  }
 }
 
-function serve(chai: kulhadChai | cutting){
-    if( chai instanceof kulhadChai){
-        return chai.serve();
-    }
+function serve(chai: kulhadChai | cutting) {
+  if (chai instanceof kulhadChai) {
+    return chai.serve();
+  }
 }
 
 type Chaiorder = {
-    type: string
-    sugar: number 
-}
+  type: string;
+  sugar: number;
+};
 
-function isChaiorder(obj:any):obj is Chaiorder{
-    return 
-    typeof obj === 'object' &&
+function isChaiorder(obj: any): obj is Chaiorder {
+  return;
+  typeof obj === "object" &&
     obj !== null &&
-    typeof obj.type === 'string' &&
-    typeof obj.type === 'number'
+    typeof obj.type === "string" &&
+    typeof obj.type === "number";
 }
 
-function serveOrder(item:Chaiorder | string){
-    if(isChaiorder(item)){
-        return `Serving ${item.type} chai ${item.sugar} sugar`
-    }
-    return `Number ${item}`
+function serveOrder(item: Chaiorder | string) {
+  if (isChaiorder(item)) {
+    return `Serving ${item.type} chai ${item.sugar} sugar`;
+  }
+  return `Number ${item}`;
 }
-
 
 // More Type
 
-let response: any = '42';
-let numberLength:number = (response as string).length
+let response: any = "42";
+let numberLength: number = (response as string).length;
 type Book = {
-    name : string
-}
+  name: string;
+};
 
-let bookString = '{"name":"One thing"}'
+let bookString = '{"name":"One thing"}';
 
 // Enum in typescrit
 
 enum StatusCode {
-    NotFound = 404,
-    Success = 200,
-    Accepted = 202,
-    Created = 201,
-    BadRequest = 400
+  NotFound = 404,
+  Success = 200,
+  Accepted = 202,
+  Created = 201,
+  BadRequest = 400,
 }
 
 const responses = {
-    url: "www.getsmartcode.site",
-    type: "GET",
-    data: "some string",
-    status: StatusCode.Success
-}
-responses.url = "www.meraman.com" // tyupescript allow this iss liye obj me type dena jaroori h 
-console.log(responses); 
+  url: "www.getsmartcode.site",
+  type: "GET",
+  data: "some string",
+  status: StatusCode.Success,
+};
+responses.url = "www.meraman.com"; // tyupescript allow this iss liye obj me type dena jaroori h
+console.log(responses);
 
+type Details = { name: string; marks: number; address?: string };
 
-type Details = {name: string , marks: number, address?: string};
-
-const result : Details = {
-    name : "Shivam",
-    marks : 100,
-    address: "Vaera"
-} 
-
+const result: Details = {
+  name: "Shivam",
+  marks: 100,
+  address: "Vaera",
+};
 
 interface AuthForm {
-    name : string,
-    submitButtonText: string,
-    onReset: (e:any)=>void,
-    onSubmit: (e:any)=>void
+  name: string;
+  submitButtonText: string;
+  onReset: (e: any) => void;
+  onSubmit: (e: any) => void;
 }
 
 const loginForm: AuthForm = {
-    name: "Login Form",
-    submitButtonText: "Login",
-    onReset: (e)=>{
-        console.log("Reset");
-    },
-    onSubmit: (e)=>{
-        console.log("Submit")
-    }
-}
+  name: "Login Form",
+  submitButtonText: "Login",
+  onReset: (e) => {
+    console.log("Reset");
+  },
+  onSubmit: (e) => {
+    console.log("Submit");
+  },
+};
 
 console.log(loginForm);
 
 // type an interface represent the funuction
 
-type logger = (msg: string, errorCode: number)=> void;
+type logger = (msg: string, errorCode: number) => void;
 
 interface loggerInterface {
-    (msg: string, errorCode: number): void;
+  (msg: string, errorCode: number): void;
 }
 
 // Defining Uinon is possible with type but not interfaces
 
 type unionOfString = number | string;
+
+// How exactly typescript decide
+let name2: string = "Shivam";
+let schoolName : "DPS" | "DAV" = "DPS";
+
+type Complex = {
+    real: number,
+    imag: number
+}
+
+interface Icomplex {
+    real: number,
+    imag: number
+}
+
+let c1 : Complex = {
+    real: 10,
+    imag: 20
+}
+
+let c2 : Icomplex = {
+    real: 9,
+    imag: 9
+}
+
+console.log(c1);
+c1 = c2;
+console.log(c2)
+
+//TS will consider Complex and Icomplex same , member are same
+
+
