@@ -28,3 +28,18 @@ const table: number[][] = [
 let chaiTuple : [string, number];
 chaiTuple = ["Masala", 20]; // isme order bhi dekhna hoga aur aati array me hi h 
 
+// Readonly tuples
+
+const locations: readonly [number , string] = [23 , "45" ];
+
+// Named tuples
+const chaiItems: [name: string , price:number] = ["Masala" , 23];
+
+// Enums
+enum CUpSize {
+    SMALL,
+    MEDIUM,
+    LARGE
+}
+
+const size = CUpSize.LARGE
