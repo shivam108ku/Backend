@@ -53,7 +53,14 @@ class Product {
     display3():void{
         console.log("Product name is ", this.name, "and price", this.price);
     }
+
+    setPrice(p:number) : void {
+        if(p <= 0) return;
+        this.price = p;
+    }
 }
 
 const p1= new Product("Iphone", 10000);
+p1.setPrice(20);
 console.log(p1);
+
