@@ -1,13 +1,18 @@
 import { pingHandler } from "../controller/ping.controller";
-import  express, { NextFunction } from "express";
+import express, { NextFunction, Request , Response } from "express";
 
 const pingRouter = express.Router();
 
-function middleware(req: Request, res:Response, next: NextFunction){
-    console.log("Middleware 1");
-    next();
+function middleware1(req: Request, res: Response, next: NextFunction) {
+  console.log("Middleware 1");
+  next(); // Call the next middleware
 }
 
-pingRouter.get('/ping',pingHandler)
- 
+function middleware2(req: Request, res: Response, next: NextFunction) {
+  console.log("Middleware 2");
+  next(); // Call the next middleware
+}
+
+pingRouter.get("/ping", middleware1, middleware2, pingHandler);
 export default pingRouter;
+ 
