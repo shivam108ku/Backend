@@ -15,4 +15,5 @@ function middleware2(req: Request, res: Response, next: NextFunction) {
 
 pingRouter.get("/ping", middleware1, middleware2, pingHandler);
 export default pingRouter;
- 
+
+// middle ware1 --> middleware2 ---> pinghandler
